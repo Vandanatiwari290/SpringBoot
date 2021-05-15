@@ -5,12 +5,12 @@ import com.springrest.demospringrestAPI.entity.Course;
 import java.util.List;
 
 public interface CourseServices {
-    public List<Course> getCourses();
-    public Course getCourse(long courseId);
+    public List<Course> getAllCourses();
+    public Course getSingleCourseDetails(long courseId);
 
-    public Course addCourse(Course course);
+    public Course addCourses(Course course);
 
-    public Course updateCourse(Course course);
+    public Course updateCourse(Course course, String courseId);
 
    public List<Course> deleteCourse(String courseId);
 }

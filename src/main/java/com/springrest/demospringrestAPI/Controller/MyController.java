@@ -19,8 +19,8 @@ public class MyController {
      */
 
     @GetMapping("/courses")
-    public List<Course>getCourses(){
-        return this.courseServices.getCourses();
+    public List<Course>getAllCourses(){
+        return this.courseServices.getAllCourses();
 
     }
 
@@ -29,9 +29,9 @@ public class MyController {
      * @param courseId
      * @return
      */
-    @GetMapping("/course/{courseId}")
-    public Course getCourse(@PathVariable String courseId){
-       return this.courseServices.getCourse(Long.parseLong(courseId));
+    @GetMapping("/course")
+    public Course getCourse(@RequestParam String courseId){
+       return this.courseServices.getSingleCourseDetails(Long.parseLong(courseId));
     }
 
 
@@ -40,7 +40,7 @@ public class MyController {
      */
     @PostMapping("/addCourses")
     public Course addCourse(@RequestBody Course course){
-        return this.courseServices.addCourse(course);
+        return this.courseServices.addCourses(course);
     }
 
     /***
@@ -52,7 +52,7 @@ public class MyController {
 
     @PutMapping("/courses/{courseId}")
     public Course updateCourses(@PathVariable String courseId, @RequestBody Course course){
-        return this.courseServices.updateCourse(course);
+        return  this.courseServices.updateCourse(course, courseId);
     }
 
     /****

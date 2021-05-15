@@ -1,7 +1,8 @@
 package com.springrest.demospringrestAPI.entity;
 
-import java.util.Objects;
+import javax.persistence.Entity;
 
+@Entity
 public class Course {
     private long id;
     public String title;
@@ -11,6 +12,9 @@ public class Course {
         this.id = id;
         this.title = title;
         this.description = description;
+    }
+    public Course(){
+
     }
 
     public long getId() {

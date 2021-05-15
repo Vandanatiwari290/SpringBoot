@@ -16,12 +16,12 @@ public class CourseServiceImp implements CourseServices{
     }
 
     @Override
-    public List<Course> getCourses() {
+    public List<Course> getAllCourses() {
         return list;
     }
 
     @Override
-    public Course getCourse(long courseId) {
+    public Course getSingleCourseDetails(long courseId) {
 
         Course c=null;
         for (Course course:list){
@@ -34,22 +34,24 @@ public class CourseServiceImp implements CourseServices{
     }
 
     @Override
-    public Course addCourse(Course course) {
+    public Course addCourses(Course course) {
          list.add(course);
          return course;
     }
 
     @Override
-    public Course updateCourse(Course course) {
+    public Course updateCourse(Course course, String courseId) {
+        Course temp = null;
 
        for(Course courseVar : list) {
-           if (courseVar.getId() == course.getId()) {
+           if (courseVar.getId() == Integer.parseInt(courseId)) {
                courseVar.setDescription(course.getDescription());
                courseVar.setTitle(course.getTitle());
+               temp=courseVar;
                break;
            }
        }
-        return course;
+        return temp;
     }
 
     @Override
